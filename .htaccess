@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Serveringizda Laravel loyihasi boshqa papka ichida joylashgan bo‘lsa, quyidagi RewriteBase ni sozlang
+    # RewriteBase /sizning-loyiha-papkangiz/
+
+    # public/.htaccess ichida fayl va papkalarni to‘g‘ri yuklash uchun sozlash
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    RewriteRule ^ index.php [L]
+</IfModule>
